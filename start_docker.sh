@@ -26,8 +26,6 @@ if [ "${USE_GPU}" = "on" ]; then
     docker run -it --rm --gpus all --shm-size=1024M \
     -e EX_IP="`hostname -I`" \
     -e EX_PORT=${EX_PORT} \
-    # -e LOCAL_UID=$(id -u $USER) \
-    # -e LOCAL_GID=$(id -g $USER) \
     -v `pwd`/docker_folder/model_dir:/voice-changer/server/model_dir \
     -v `pwd`/docker_folder/pretrain:/voice-changer/server/pretrain \
     -p ${EX_PORT}:18888 \
@@ -49,8 +47,6 @@ else
     docker run -it --rm --shm-size=1024M \
     -e EX_IP="`hostname -I`" \
     -e EX_PORT=${EX_PORT} \
-    # -e LOCAL_UID=$(id -u $USER) \
-    # -e LOCAL_GID=$(id -g $USER) \
     -v `pwd`/docker_folder/model_dir:/voice-changer/server/model_dir \
     -v `pwd`/docker_folder/pretrain:/voice-changer/server/pretrain \
     -p ${EX_PORT}:18888 \
